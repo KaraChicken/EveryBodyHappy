@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let EveryBodyHappy = () => {
+            for (let i = 0; i < 6; i++){
+                let val = Math.round(Math.random() * (38 - 1) + 1);
+                if (val < 10){
+                    document.write(` 0${val} `);
+                } else {
+                    document.write(` ${val} `);
+                }
+            }
+            let Special = Math.round(Math.random() * (8 - 1) + 1);
+            if (Special < 10){
+                    document.write(`<br>特：0${Special} `);
+                } else {
+                    document.write(`<br>特：${Special} `);
+                }
+        }
+        EveryBodyHappy();
+    </script>
+</body>
+</html>
