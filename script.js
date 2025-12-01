@@ -217,30 +217,13 @@ document.addEventListener("DOMContentLoaded", () => {
       bingoStarsSelect = document.getElementById("bingo-stars-select");
       superballCheckbox = document.getElementById("superball-checkbox");
 
-      if (generateBtn && numbersContainer) {
-        generateBtn.addEventListener("click", generateNumbers);
-        initializeBalls();
-
-        if (bingoStarsSelect) {
-          bingoStarsSelect.addEventListener("change", initializeBalls);
-        }
+      if (numbersContainer) {
+        initializeBalls(); // 初始化球
       }
     } catch (error) {
       pageContent.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
     }
   };
-
-  // --- Path Correction for GitHub Pages ---
-  const getBasePath = () => {
-    const host = window.location.hostname;
-    if (host.includes("github.io")) {
-      // For GitHub Pages, the path is /<repository-name>/
-      const path = window.location.pathname;
-      return path.substring(0, path.lastIndexOf("/") + 1);
-    }
-    return "/"; // For local development or custom domains
-  };
-  const basePath = getBasePath();
 
   // 處理導覽列點擊事件
   navbarNav.addEventListener("click", (e) => {
@@ -258,11 +241,26 @@ document.addEventListener("DOMContentLoaded", () => {
       // 載入對應的遊戲頁面
       const page = e.target.dataset.page;
       if (page) {
-        loadGame(`${basePath}pages/${page}`);
+        loadGame(`pages/${page}`);
       }
     }
   });
 
+  // 使用事件委派來處理動態載入的內容
+  pageContent.addEventListener("click", (e) => {
+    // 監聽 "產生號碼" 按鈕
+    if (e.target && e.target.id === "generate-btn") {
+      generateNumbers();
+    }
+  });
+
+  pageContent.addEventListener("change", (e) => {
+    // 監聽 BINGO BINGO 的星數選擇
+    if (e.target && e.target.id === "bingo-stars-select") {
+      initializeBalls();
+    }
+  });
+
   // 頁面載入時，預設載入威力彩遊戲
-  loadGame(`${basePath}pages/power-lottery.html`);
+  loadGame("pages/power-lottery.html");
 });
