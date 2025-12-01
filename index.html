@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        let EveryBodyHappy = () => {
-            for (let i = 0; i < 6; i++){
-                let val = Math.round(Math.random() * (38 - 1) + 1);
-                if (val < 10){
-                    document.write(` 0${val} `);
-                } else {
-                    document.write(` ${val} `);
-                }
-            }
-            let Special = Math.round(Math.random() * (8 - 1) + 1);
-            if (Special < 10){
-                    document.write(`<h1>特：0${Special}</h1> `);
-                } else {
-                    document.write(`<h1>特：${Special}</h1> `);
-                }
-        }
-        EveryBodyHappy();
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>樂透號碼產生器</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>祝您中大獎！</h1>
+      <div class="numbers-display" id="numbers-container"></div>
+      <button id="generate-btn">產生新號碼</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
