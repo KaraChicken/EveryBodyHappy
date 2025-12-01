@@ -4,14 +4,95 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>樂透號碼產生器</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>祝您中大獎！</h1>
-      <div class="numbers-display" id="numbers-container"></div>
-      <button id="generate-btn">產生新號碼</button>
-    </div>
+    <main class="d-flex flex-column">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">幸運產生器</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  href="#"
+                  data-page="power-lottery.html"
+                  >威力彩</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-page="lotto-649.html"
+                  >大樂透</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-page="daily-cash-539.html"
+                  >今彩539</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-page="lotto-39.html"
+                  >39樂合彩</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-page="lotto-49.html"
+                  >49樂合彩</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-page="3-star.html">3星彩</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-page="4-star.html">4星彩</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-page="bingo-bingo.html"
+                  >BINGO BINGO</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="page-content" class="container mt-5">
+        <!-- 遊戲內容將會載入到這裡 -->
+      </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+      <div class="container text-center">
+        <p class="text-white-50 mb-0">
+          免責聲明：本網站所有內容僅供娛樂與參考，不保證任何開獎結果，請以官方公告為準。
+        </p>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

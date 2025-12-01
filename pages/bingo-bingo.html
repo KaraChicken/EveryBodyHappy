@@ -1,0 +1,44 @@
+<div class="card text-center shadow-lg">
+  <div class="card-header fs-4">BINGO BINGO</div>
+  <div class="card-body">
+    <div class="row align-items-center mb-3">
+      <div class="col-md-6">
+        <h1 class="card-title text-md-start">祝您中大獎！</h1>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group">
+          <label class="input-group-text" for="bingo-stars-select"
+            >選擇星數</label
+          >
+          <select class="form-select" id="bingo-stars-select">
+            <option value="1">1星</option>
+            <option value="2">2星</option>
+            <option value="3">3星</option>
+            <option value="4">4星</option>
+            <option value="5" selected>5星</option>
+            <option value="6">6星</option>
+            <option value="7">7星</option>
+            <option value="8">8星</option>
+            <option value="9">9星</option>
+            <option value="10">10星</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="numbers-display" id="numbers-container"></div>
+    <div class="mt-4 d-flex justify-content-center align-items-center gap-4">
+      <button id="generate-btn" class="btn btn-success btn-lg">產生號碼</button>
+      <div class="form-check form-switch" id="superball-switch-container">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="superball-checkbox"
+        />
+        <label class="form-check-label fs-5" for="superball-checkbox"
+          >超級獎號</label
+        >
+      </div>
+    </div>
+  </div>
+</div>
