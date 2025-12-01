@@ -230,6 +230,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // --- Path Correction for GitHub Pages ---
+  const getBasePath = () => {
+    const host = window.location.hostname;
+    if (host.includes("github.io")) {
+      // For GitHub Pages, the path is /<repository-name>/
+      const path = window.location.pathname;
+      return path.substring(0, path.lastIndexOf("/") + 1);
+    }
+    return "/"; // For local development or custom domains
+  };
+  const basePath = getBasePath();
+
   // 處理導覽列點擊事件
   navbarNav.addEventListener("click", (e) => {
     // 確保點擊的是一個 nav-link
@@ -246,11 +258,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // 載入對應的遊戲頁面
       const page = e.target.dataset.page;
       if (page) {
-        loadGame(`pages/${page}`);
+        loadGame(`${basePath}pages/${page}`);
       }
     }
   });
 
   // 頁面載入時，預設載入威力彩遊戲
-  loadGame("pages/power-lottery.html");
+  loadGame(`${basePath}pages/power-lottery.html`);
 });
