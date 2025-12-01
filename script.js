@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   // 將變數宣告移到更廣的作用域，以便在載入後賦值
-  let generateBtn = null;
   let numbersContainer = null;
   const pageContent = document.getElementById("page-content");
   const navbarNav = document.querySelector(".navbar-nav");
-  let bingoStarsSelect = null;
-  let superballCheckbox = null;
 
   // 遊戲規則庫
   const gameRules = {
@@ -91,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const initializeBalls = () => {
     let rules = gameRules[currentGame] || gameRules.default;
     let ballCount = rules.regularBalls;
+    // BINGO BINGO 的特殊處理
+    const bingoStarsSelect = document.getElementById("bingo-stars-select");
 
     // BINGO BINGO 的球數由下拉選單決定
     if (currentGame === "bingo-bingo.html" && bingoStarsSelect) {
@@ -116,11 +115,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let rules = gameRules[currentGame] || gameRules.default;
     const min = rules.minNum ?? 1;
     let ballCount = rules.regularBalls;
+    // BINGO BINGO 的特殊處理
+    const bingoStarsSelect = document.getElementById("bingo-stars-select");
+    const superballCheckbox = document.getElementById("superball-checkbox");
+    const generateBtn = document.getElementById("generate-btn");
 
     generateBtn.disabled = true; // 動畫開始時禁用按鈕
     if (superballCheckbox) superballCheckbox.disabled = true;
 
-    // BINGO BINGO 的球數由下拉選單決定
     if (currentGame === "bingo-bingo.html" && bingoStarsSelect) {
       ballCount = parseInt(bingoStarsSelect.value, 10);
       initializeBalls(); // 根據新的星數重新產生球
@@ -200,22 +202,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadGame = async (page) => {
     try {
       currentGame = page.split("/").pop(); // 更新當前遊戲
-      // 清除舊的 BINGO BINGO 特殊元素事件監聽器
-      bingoStarsSelect = null;
-      superballCheckbox = null;
 
       const response = await fetch(page);
       if (!response.ok) throw new Error("頁面載入失敗");
       const html = await response.text();
       pageContent.innerHTML = html;
 
-      // 重新獲取 DOM 元素並綁定事件
-      generateBtn = document.getElementById("generate-btn");
       numbersContainer = document.getElementById("numbers-container");
-
-      // BINGO BINGO 的特殊處理
-      bingoStarsSelect = document.getElementById("bingo-stars-select");
-      superballCheckbox = document.getElementById("superball-checkbox");
 
       if (numbersContainer) {
         initializeBalls(); // 初始化球
